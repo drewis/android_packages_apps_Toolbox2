@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:key="pref_interface_category_buttons"
+        android:title="@string/pref_interface_category_buttons">
+
+        <CheckBoxPreference android:key="pref_trackball_wake_toggle"
+            android:title="@string/pref_trackball_wake_toggle_title"
+            android:summary="@string/pref_trackball_wake_toggle_summary">
+        </CheckBoxPreference>
+
+        <CheckBoxPreference android:key="pref_volume_wake_toggle"
+            android:title="@string/pref_volume_wake_toggle_title"
+            android:summary="@string/pref_volume_wake_toggle_summary">
+        </CheckBoxPreference>
+
+        <CheckBoxPreference
+            android:key="pref_lockscreen_music_controls_volbtn"
+            android:title="@string/pref_lockscreen_music_controls_volbtn_title"
+            android:summary="@string/pref_lockscreen_music_controls_volbtn_summary">
+        </CheckBoxPreference>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:key="pref_interface_category_tabletdpi"
+        android:title="@string/pref_interface_category_tabletdpi">
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:key="pref_interface_category_misc"
+        android:title="@string/pref_interface_category_misc">
+
+        <PreferenceScreen android:key="pref_interface_rotation"
+            android:title="@string/pref_interface_rotation_title"
+            android:summary="@string/pref_interface_rotation_summary"
+            >
+        </PreferenceScreen>
+
+        <PreferenceScreen android:key="pref_interface_power_menu"
+            android:title="@string/pref_interface_power_menu_title"
+            android:summary="@string/pref_interface_power_menu_summary"
+            >
+        </PreferenceScreen>
+
+    </PreferenceCategory>
+</PreferenceScreen>
