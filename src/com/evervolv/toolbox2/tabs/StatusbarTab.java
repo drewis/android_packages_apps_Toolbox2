@@ -14,20 +14,20 @@
  * limitations under the License.
  */
 
-package com.evervolv.toolbox.tabs;
+package com.evervolv.toolbox2.tabs;
 
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
 
-import com.evervolv.toolbox.R;
+import com.evervolv.toolbox2.R;
 
-public class InterfaceTab extends PreferenceFragment {
+public class StatusbarTab extends PreferenceFragment {
     
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        addPreferencesFromResource(R.xml.interface_tab);
+        addPreferencesFromResource(R.xml.statusbar_tab);
     }
 
 }

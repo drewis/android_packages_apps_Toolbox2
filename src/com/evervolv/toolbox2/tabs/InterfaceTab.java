@@ -14,20 +14,27 @@
  * limitations under the License.
  */
 
-package com.evervolv.toolbox.tabs;
+package com.evervolv.toolbox2.tabs;
 
+import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
+import android.preference.Preference;
+import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
+import android.preference.PreferenceScreen;
 
-import com.evervolv.toolbox.R;
+import com.evervolv.toolbox2.R;
 
-public class LockscreenTab extends PreferenceFragment {
+import java.util.List;
+
+public class InterfaceTab extends PreferenceFragment {
     
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        
-        addPreferencesFromResource(R.xml.lockscreen_tab);
+
+        addPreferencesFromResource(R.xml.interface_tab);
     }
 
 }

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.evervolv.toolbox;
+package com.evervolv.toolbox2;
 
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
@@ -26,20 +26,20 @@ import android.os.Bundle;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
-import android.support.v4.widget.DrawerLayout;
 
-import com.evervolv.toolbox.R;
-import com.evervolv.toolbox.tabs.InterfaceTab;
-import com.evervolv.toolbox.tabs.LockscreenTab;
-import com.evervolv.toolbox.tabs.StatusbarTab;
+import com.evervolv.toolbox2.R;
+import com.evervolv.toolbox2.tabs.InterfaceTab;
+import com.evervolv.toolbox2.tabs.LockscreenTab;
+import com.evervolv.toolbox2.tabs.PerformanceTab;
+import com.evervolv.toolbox2.tabs.StatusbarTab;
+import com.evervolv.toolbox2.tabs.UpdatesTab;
 
 import java.util.ArrayList;
 
-public class Toolbox extends Activity {
+public class Toolbox extends FragmentActivity {
 
     private ViewPager mViewPager;
     private TabsAdapter mTabsAdapter;
-    private DrawerLayout mDrawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +63,10 @@ public class Toolbox extends Activity {
                 InterfaceTab.class, null);
         mTabsAdapter.addTab(bar.newTab().setText(R.string.tab_title_statusbar),
                 StatusbarTab.class, null);
+        mTabsAdapter.addTab(bar.newTab().setText(R.string.tab_title_performance),
+                PerformanceTab.class, null);
+        mTabsAdapter.addTab(bar.newTab().setText(R.string.tab_title_updates),
+                UpdatesTab.class, null);
     }
     
     static class TabsAdapter extends FragmentPagerAdapter

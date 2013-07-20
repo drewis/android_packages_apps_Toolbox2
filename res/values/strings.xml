@@ -1,8 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- 
+ * Copyright (C) 2013 The Evervolv Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ -->
+
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-        <!-- Main app strings ( name, immediate tabs ) -->
+
+        <!-- Generic Strings, multiple uses -->
     <string name="app_name">Toolbox</string>
+    <string name="apply">Apply</string>
+
+        <!-- Main app strings ( immediate tabs ) -->
     <string name="tab_title_lockscreen">Lockscreen</string>
     <string name="tab_title_statusbar">Statusbar</string>
     <string name="tab_title_interface">Interface</string>
+    <string name="tab_title_performance">Performance</string>
+    <string name="tab_title_updates">Updates</string>
+
+
+        <!-- Lockscreen -->
+    <string name="pref_lockscreen_style_title">Style</string>
+    <string name="pref_lockscreen_style_summary">Choose your style of lockscreen</string>
+
+        <!-- Lockscreen >> Main-->
+    <string name="pref_lockscreen_main_message_title">Message</string>
+    <string name="pref_lockscreen_main_message_summary">Change the message displayed on the lockscreen</string>
+    <string name="pref_lockscreen_main_message_dialog_title">Enter message to be displayed</string>
+    <string name="pref_lockscreen_main_background_title">Background</string>
+    <string name="pref_lockscreen_main_background_color_fill">Color fill</string>
+    <string name="pref_lockscreen_main_background_custom_image">Custom image</string>
+    <string name="pref_lockscreen_main_background_transparent">Transparent</string>
+    <string name="pref_lockscreen_main_background_default_wallpaper">Default wallpaper</string>
+
+        <!-- Lockscreen >> Styles-->
+    <string name="pref_lockscreen_style_picker_caption_jellybean">Jellybean</string>
+    <string name="pref_lockscreen_style_picker_caption_ics">Ice Cream Sandwich</string>
+    <string name="pref_lockscreen_style_picker_caption_gingerbread">Gingerbread</string>
+    <string name="pref_lockscreen_style_picker_caption_eclair">Eclair</string>
+
+        <!-- GalleryPickerPreference -->
+    <string name="item_count">%1$d/%2$d</string>
+
 </resources>

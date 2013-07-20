@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Lockscreen style -->
+    <com.evervolv.toolbox2.custom.GalleryPickerPreference android:key="pref_lockscreen_style_picker"
+        xmlns:ev="http://schemas.android.com/apk/res/com.evervolv.toolbox2"
+        ev:entryDrawables="@array/lockscreen_style_picker_drawables" 
+        ev:entryCaptions="@array/lockscreen_style_picker_captions"/>
+
+</PreferenceScreen>
