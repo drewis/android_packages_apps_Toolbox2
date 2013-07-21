@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <CheckBoxPreference android:key="pref_trackball_wake_toggle"
+            android:title="@string/pref_trackball_wake_toggle_title"
+            android:summary="@string/pref_trackball_wake_toggle_summary">
+        </CheckBoxPreference>
+
+        <CheckBoxPreference android:key="pref_volume_wake_toggle"
+            android:title="@string/pref_volume_wake_toggle_title"
+            android:summary="@string/pref_volume_wake_toggle_summary">
+        </CheckBoxPreference>
+
+        <CheckBoxPreference
+            android:key="pref_lockscreen_music_controls_volbtn"
+            android:title="@string/pref_lockscreen_music_controls_volbtn_title"
+            android:summary="@string/pref_lockscreen_music_controls_volbtn_summary">
+        </CheckBoxPreference>
+
+        <com.evervolv.toolbox2.custom.NumberPickerPreference android:key="pref_interface_density_picker"
+            android:title="@string/pref_interface_density_picker_title">
+        </com.evervolv.toolbox2.custom.NumberPickerPreference>
+
+</PreferenceScreen>

@@ -26,6 +26,9 @@ import android.os.Bundle;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.Window;
 
 import com.evervolv.toolbox2.R;
 import com.evervolv.toolbox2.tabs.InterfaceTab;
@@ -44,17 +47,17 @@ public class Toolbox extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS); 
         setContentView(R.layout.toolbox);
         
         mViewPager = (ViewPager) findViewById(R.id.view_pager);
-
 
         final ActionBar bar = getActionBar();
         bar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
         bar.setDisplayOptions(ActionBar.DISPLAY_SHOW_TITLE, ActionBar.DISPLAY_SHOW_TITLE);
         bar.setTitle(R.string.app_name);
-        bar.setDisplayHomeAsUpEnabled(true);
+        // TODO: Fix this so home will be Settings 
+        // bar.setDisplayHomeAsUpEnabled(true);
 
         mTabsAdapter = new TabsAdapter(this, mViewPager);
         mTabsAdapter.addTab(bar.newTab().setText(R.string.tab_title_lockscreen),
@@ -68,7 +71,7 @@ public class Toolbox extends FragmentActivity {
         mTabsAdapter.addTab(bar.newTab().setText(R.string.tab_title_updates),
                 UpdatesTab.class, null);
     }
-    
+
     static class TabsAdapter extends FragmentPagerAdapter
             implements ActionBar.TabListener, ViewPager.OnPageChangeListener {
         private final Context mContext;

@@ -16,25 +16,38 @@
 
 package com.evervolv.toolbox2.tabs;
 
-import android.app.Fragment;
-import android.content.Intent;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.preference.Preference;
-import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
-import android.preference.PreferenceScreen;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 
-import com.evervolv.toolbox2.R;
-
-import java.util.List;
+import com.evervolv.toolbox2.fragments.PerformanceMain;
 
 public class PerformanceTab extends PreferenceFragment {
     
+    private static final String TAG = "EVToolbox";
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
+    
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+            Bundle savedInstanceState) {
 
-        addPreferencesFromResource(R.xml.interface_tab);
+        // TODO: This is temporary until we split it up into tabs
+        // Processor / Memory Management?
+        FrameLayout view = new FrameLayout(getActivity().getApplicationContext());
+        view.setId(10101010);
+        PreferenceFragment frag = new PerformanceMain();
+        FragmentTransaction ft = getFragmentManager().beginTransaction(); 
+        ft.add(view.getId(), frag);
+        ft.commit();
+        return view;
     }
 
 }

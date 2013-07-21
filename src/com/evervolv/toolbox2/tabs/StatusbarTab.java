@@ -16,18 +16,38 @@
 
 package com.evervolv.toolbox2.tabs;
 
+import android.app.Activity;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 
 import com.evervolv.toolbox2.R;
+import com.evervolv.toolbox2.fragments.StatusbarMain;
 
 public class StatusbarTab extends PreferenceFragment {
     
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        
-        addPreferencesFromResource(R.xml.statusbar_tab);
     }
 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+            Bundle savedInstanceState) {
+
+        // TODO: This is temporary until we split it up into tabs
+        FrameLayout view = new FrameLayout(getActivity().getApplicationContext());
+        view.setId(10101011); // do we need to fake this id?
+        PreferenceFragment frag = new StatusbarMain();
+        FragmentTransaction ft = getFragmentManager().beginTransaction(); 
+        ft.add(view.getId(), frag);
+        ft.commit();
+        return view;
+    }
 }

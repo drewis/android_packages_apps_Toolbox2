@@ -16,6 +16,7 @@
 
 package com.evervolv.toolbox2.tabs;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
@@ -23,18 +24,51 @@ import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
+import android.support.v13.app.FragmentTabHost;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.evervolv.toolbox2.R;
+import com.evervolv.toolbox2.fragments.InterfaceMain;
+import com.evervolv.toolbox2.fragments.InterfacePowerMenu;
+import com.evervolv.toolbox2.fragments.InterfaceRotation;
 
 import java.util.List;
 
 public class InterfaceTab extends PreferenceFragment {
     
+    private FragmentTabHost mTabHost;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
 
-        addPreferencesFromResource(R.xml.interface_tab);
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+            Bundle savedInstanceState) {
+        super.onCreateView(inflater, container, savedInstanceState);
+
+        mTabHost = new FragmentTabHost(getActivity());
+        mTabHost.setup(getActivity(), getChildFragmentManager(), container.getId());
+
+        mTabHost.addTab(mTabHost.newTabSpec("main").setIndicator("Main"),
+                InterfaceMain.class, null);
+        mTabHost.addTab(mTabHost.newTabSpec("rotation").setIndicator("Rotation"),
+                InterfaceRotation.class, null);
+        mTabHost.addTab(mTabHost.newTabSpec("power_menu").setIndicator("Power menu"),
+                InterfacePowerMenu.class, null);
+
+        return mTabHost;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        mTabHost = null;
     }
 
 }
