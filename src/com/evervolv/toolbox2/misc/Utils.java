@@ -6,6 +6,7 @@ import java.io.File;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Locale;
 
 public class Utils {
@@ -36,19 +37,9 @@ public class Utils {
         return date > installedDate;
     }
 
-    public static File[] getFilesInDir(String dir, String pattern) {
-        File listFiles[] = new File(dir).listFiles();
-        ArrayList<File> filesFound = new ArrayList<File>();
-        if (listFiles != null) {
-            for (int i = 0; i < listFiles.length; i++) {
-
-                  if (listFiles[i].getName().endsWith(pattern)){
-                      filesFound.add(listFiles[i]);
-                  }
-
-            }
-        }
-        return filesFound.toArray(new File[filesFound.size()]);
+    public static String getBackupDirectory() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy.MM.dd-SSS",Locale.US);
+        return dateFormat.format(new Date()) + "-" + getInstalledVersion();
     }
 
 }

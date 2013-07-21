@@ -16,34 +16,16 @@
 
 package com.evervolv.toolbox2.tabs;
 
-import android.app.ActionBar;
-import android.app.Activity;
 import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
-import android.app.ActionBar.Tab;
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.preference.Preference;
-import android.preference.PreferenceActivity;
-import android.preference.PreferenceFragment;
-import android.preference.PreferenceScreen;
-import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v13.app.FragmentTabHost;
-import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.evervolv.toolbox2.R;
 import com.evervolv.toolbox2.fragments.LockscreenMain;
 import com.evervolv.toolbox2.fragments.LockscreenStyle;
-
-import java.util.ArrayList;
 
 public class LockscreenTab extends Fragment {
 

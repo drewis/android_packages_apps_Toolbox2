@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Updates (Changelog/Info) -->
+    <string name="changelog_info_dialog_tab_info_md5sum_server">Md5Sum: (on server)</string>
+    <string name="changelog_info_dialog_tab_info_md5sum_local">Md5Sum: (on device)</string>
+</resources>

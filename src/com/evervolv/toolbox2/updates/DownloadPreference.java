@@ -1,13 +1,8 @@
 package com.evervolv.toolbox2.updates;
 
-import java.io.File;
-
-import android.app.AlertDialog;
 import android.app.DownloadManager;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.preference.Preference;
@@ -26,10 +21,12 @@ import android.widget.TableLayout;
 import android.widget.TextView;
 
 import com.evervolv.toolbox2.R;
-import com.evervolv.toolbox2.updates.db.ManifestEntry;
 import com.evervolv.toolbox2.misc.Constants;
 import com.evervolv.toolbox2.misc.MD5;
 import com.evervolv.toolbox2.misc.Utils;
+import com.evervolv.toolbox2.updates.db.ManifestEntry;
+
+import java.io.File;
 
 
 public class DownloadPreference extends Preference implements OnClickListener {
@@ -61,10 +58,6 @@ public class DownloadPreference extends Preference implements OnClickListener {
     private String mStorageDir;
     private boolean mInstalled;
     private boolean mNew;
-
-    private File[] mGappsList;
-    private int mWhichGapps;
-    private CharSequence[] mZipItems;
 
     private TableLayout mSlidingInfo;
     private boolean mIsDrawerOpen = false;
@@ -139,16 +132,16 @@ public class DownloadPreference extends Preference implements OnClickListener {
         }
 
         TextView txtDate = (TextView) view.findViewById(R.id.text_date);
-        txtDate.setText(mEntry.getDate());
+        txtDate.setText(mDate);
 
         TextView txtSize = (TextView) view.findViewById(R.id.text_size);
         txtSize.setText(mEntry.getFriendlySize());
 
         TextView txtFilename = (TextView) view.findViewById(R.id.text_filename);
-        txtFilename.setText(mEntry.getName());
+        txtFilename.setText(mFileName);
 
         mMd5SumServer = (TextView) view.findViewById(R.id.text_md5sum_server);
-        mMd5SumServer.setText(mEntry.getMd5sum());
+        mMd5SumServer.setText(mMd5Sum);
 
         mMd5SumLocal = (TextView) view.findViewById(R.id.text_md5sum_local);
     }
@@ -312,7 +305,6 @@ public class DownloadPreference extends Preference implements OnClickListener {
                 mProgress.setVisibility(View.GONE);
                 if (mInstalled) {
                     mSummary.setText(R.string.status_installed);
-                    //mSummary.setTextColor(Color.WHITE);
                     mSummary.setVisibility(View.VISIBLE);
                 } else if (mNew) {
                     mSummary.setText(R.string.status_new);
@@ -332,55 +324,10 @@ public class DownloadPreference extends Preference implements OnClickListener {
                 } else {
                     mSummary.setText(R.string.status_downloaded);
                 }
-                //mSummary.setTextColor(Color.GREEN);
                 mSummary.setVisibility(View.VISIBLE);
                 break;
         }
     }
-
-    /* TODO FEATURE:
-     * Turn this into a dialog or activity to get a build "ready" to flash, including other zips to flash
-     * and options while flashing ( wiping, etc ).
-     */
-    public void getReadyToFlash() {
-        int pickedId;
-        mGappsList = Utils.getFilesInDir(UpdatesFragment.BASE_STORAGE_LOCATION + "/gapps/", ".zip");
-        mZipItems = new CharSequence[mGappsList.length + 1];
-        mZipItems[0] = "None"; // Hack
-        int i = 1;
-        for (File zip : mGappsList) {
-            mZipItems[i] = zip.getName();
-            i++;
-        }
-        Resources res = mContext.getResources();
-        AlertDialog.Builder flashDialog = new AlertDialog.Builder(mParent.getActivity());
-        flashDialog.setTitle(R.string.alert_dialag_gapps_title);
-        flashDialog.setSingleChoiceItems(mZipItems, 0, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                mWhichGapps = which;
-            }
-        });
-
-        flashDialog.setPositiveButton(R.string.reboot,
-                new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                //buildRecoveryScript(zipItems[mWhichGapps].toString());
-                //tempTwrpDialog(); //TODO: Temporary dialog warning for TWRP support only
-                dialog.dismiss();
-            }
-        });
-        flashDialog.setNegativeButton(R.string.cancel,
-                new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
-        });
-        flashDialog.show();
-    }
-
 
     /* TODO FEATURE:
      * Use mSummary to show download percentage
